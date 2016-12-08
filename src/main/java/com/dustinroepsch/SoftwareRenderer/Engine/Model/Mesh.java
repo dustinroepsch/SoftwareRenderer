@@ -24,7 +24,9 @@ public class Mesh {
         Scanner fileScanner = new Scanner(file);
         //matches the pattern v 0.608654 -0.568839 -0.416318
         //puts each float into a capture group.
-        Pattern verticePattern = Pattern.compile("v\\s*([-+]?[0-9]*\\.?[0-9]+)\\s*([-+]?[0-9]*\\.?[0-9]+)\\s*([-+]?[0-9]*\\.?[0-9]+)");
+        //allows for exponents
+        Pattern verticePattern =
+                Pattern.compile("v\\s*([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)\\s*([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)\\s*([-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?)");
         //matches the pattern f 1193/1240/1193 1180/1227/1180 1179/1226/1179
         //puts each number into a capture group
         Pattern facePattern = Pattern.compile("f\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)");
@@ -44,11 +46,11 @@ public class Mesh {
             Matcher faceMatcher = facePattern.matcher(currentLine);
             if (faceMatcher.matches()) {
                 faces.add(
-                  new Face(
-                          verts.get(Integer.parseInt(faceMatcher.group(1))),
-                          verts.get(Integer.parseInt(faceMatcher.group(4))),
-                          verts.get(Integer.parseInt(faceMatcher.group(7)))
-                  )
+                        new Face(
+                                verts.get(Integer.parseInt(faceMatcher.group(1)) - 1), //-1 because our array is zero indexed, but this reference is 1-indexed.
+                                verts.get(Integer.parseInt(faceMatcher.group(4)) - 1),
+                                verts.get(Integer.parseInt(faceMatcher.group(7)) - 1)
+                        )
                 );
             }
         }
