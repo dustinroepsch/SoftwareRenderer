@@ -30,9 +30,7 @@ public class Mesh {
         //matches the pattern f 1193/1240/1193 1180/1227/1180 1179/1226/1179
         //puts each number into a capture group
         Pattern facePattern = Pattern.compile("f\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)");
-
         ArrayList<Vertice> verts = new ArrayList<Vertice>();
-
         while (fileScanner.hasNextLine()) {
             String currentLine = fileScanner.nextLine();
             Matcher verticeMatcher = verticePattern.matcher(currentLine);
@@ -47,7 +45,8 @@ public class Mesh {
             if (faceMatcher.matches()) {
                 faces.add(
                         new Face(
-                                verts.get(Integer.parseInt(faceMatcher.group(1)) - 1), //-1 because our array is zero indexed, but this reference is 1-indexed.
+                                //we subtract 1 because our array is zero indexed, but this reference is 1-indexed.
+                                verts.get(Integer.parseInt(faceMatcher.group(1)) - 1),
                                 verts.get(Integer.parseInt(faceMatcher.group(4)) - 1),
                                 verts.get(Integer.parseInt(faceMatcher.group(7)) - 1)
                         )
