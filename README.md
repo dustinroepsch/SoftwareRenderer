@@ -1,13 +1,13 @@
 Software Renderer
 =================
 
-The goal of this project is for me to apply the concepts I've been learing in Math 317 (Theory of Linear Algebra) at Iowa State. 
+The goal of this project is for me to apply the concepts I've been learning in Math 317 (Theory of Linear Algebra) at Iowa State. 
 This is an attempt to make a software 3D rendering library that has few external dependencies. As of writing, I plan on using 
-Guava for its niceties, and most like Processing to make drawing the pixels easier (maybe opting for javafx or awt in the future).
+Guava for its niceties, and most likely Processing to make drawing the pixels easier (maybe opting for javafx or awt in the future).
 
 Documentation
 --------------
-I've been to JavaDoc all of the engine code. You can view the documentation on this repos github page, located at 
+I've been to JavaDoc all of the engine code. You can view the documentation on this repositories Github page, located at 
 https://dustinroepsch.github.io/SoftwareRenderer/
 
 Helpful Links
