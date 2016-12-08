@@ -36,7 +36,7 @@ public class Vector3 {
     /**
      * Constructs a 3-vector using the given array.
      *
-     * @param vector Must have length >= 3. The 0th element is X, 1st element is Y and 2nd element is Z
+     * @param vector Must have length greater than or equal to 3. The 0th element is X, 1st element is Y and 2nd element is Z
      */
     public Vector3(float[] vector) {
         checkNotNull(vector);
