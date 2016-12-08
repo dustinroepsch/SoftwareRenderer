@@ -1,4 +1,7 @@
 /**
+ * Transformation Matrix as described in
+ * ttp://www.codinglabs.net/article_world_view_projection_matrix.aspx
+ *
  * @author Dustin Ryan-Roepsch
  */
 public class TransformationMatrix {
@@ -12,6 +15,11 @@ public class TransformationMatrix {
                 matrix[i][j] = i == j ? 1 : 0;
             }
         }
+    }
 
+    public void translate(float x, float y, float z) {
+        matrix[0][3] += x;
+        matrix[1][3] += y;
+        matrix[2][3] += z;
     }
 }
