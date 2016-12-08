@@ -22,4 +22,8 @@ public class TransformationMatrix {
         matrix[1][3] += y;
         matrix[2][3] += z;
     }
+
+    public void rotateX(float theta) {
+
+    }
 }
