@@ -74,8 +74,7 @@ public class TransformationMatrix {
                 for (int k = 0; k < 4; k++) {
                     sum = sum + this.matrix[i][k] * other.matrix[k][j];
                 }
-                new
-                        result[i][j] = sum;
+                result[i][j] = sum;
             }
         }
         return new TransformationMatrix(result);
@@ -120,6 +119,7 @@ public class TransformationMatrix {
         rotation.matrix[1][2] = (float) -sin(theta);
         rotation.matrix[2][1] = (float) sin(theta);
         rotation.matrix[2][2] = (float) cos(theta);
+        return rotation;
     }
 
     @Override
