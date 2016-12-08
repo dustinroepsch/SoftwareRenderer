@@ -25,6 +25,6 @@ public class TransformationMatrixTest {
         Vector3 toRotate = new Vector3(0, 0, 1);
         Vector3 expectedResult = new Vector3(0, -1, 0);
         Vector3 actualResult = rotation.applyTo(toRotate);
-        assertTrue(expectedResult.toString() + " is not epsilonEqual to " + actualResult.toString(),expectedResult.epsilonEquals( actualResult, 0.0001f));
+        assertTrue(expectedResult.toString() + " is not epsilonEqual to " + actualResult.toString(), expectedResult.epsilonEquals(actualResult, 0.0001f));
     }
 }
