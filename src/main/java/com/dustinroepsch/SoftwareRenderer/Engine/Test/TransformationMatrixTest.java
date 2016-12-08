@@ -1,6 +1,6 @@
-package Engine.Test;
+package com.dustinroepsch.SoftwareRenderer.Engine.Test;
 
-import Engine.TransformationMatrix;
+import com.dustinroepsch.SoftwareRenderer.Engine.TransformationMatrix;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

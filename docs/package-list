@@ -1,2 +1,3 @@
-Engine
-Engine.Test
+com.dustinroepsch.SoftwareRenderer
+com.dustinroepsch.SoftwareRenderer.Engine
+com.dustinroepsch.SoftwareRenderer.Engine.Test

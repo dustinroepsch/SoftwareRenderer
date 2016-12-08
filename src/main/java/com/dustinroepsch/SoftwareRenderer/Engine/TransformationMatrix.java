@@ -1,8 +1,7 @@
-package Engine;
+package com.dustinroepsch.SoftwareRenderer.Engine;
 
 import java.util.Arrays;
 import java.util.Random;
-import java.util.jar.Pack200;
 
 import static java.lang.Math.cos;
 import static java.lang.Math.sin;
