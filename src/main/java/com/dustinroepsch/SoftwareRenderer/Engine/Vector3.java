@@ -7,6 +7,7 @@ import static com.google.common.base.Preconditions.*;
  * These vectors are represented as 4 element arrays
  * with the last element set to 1, so that TransformationMatrix class can
  * translate them.
+ *
  * @author Dustin Ryan-Roepsch
  */
 public class Vector3 {
@@ -17,6 +18,7 @@ public class Vector3 {
 
     /**
      * Constructs a 3-vector with the given x y and z coordinates
+     *
      * @param x The x coordinate.
      * @param y The y coordinate.
      * @param z The z coordinate.
@@ -31,6 +33,7 @@ public class Vector3 {
 
     /**
      * Constructs a 3-vector using the given array.
+     *
      * @param vector Must have length >= 3. The 0th element is X, 1st element is Y and 2nd element is Z
      */
     public Vector3(float[] vector) {
