@@ -1,6 +1,7 @@
 package Engine;
 
-import Engine.Vector3;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  * Transformation Matrix as described in
@@ -56,17 +57,65 @@ public class TransformationMatrix {
 
     /**
      * Applies this transformation matrix to another transformation matrix and returns the result.
-     *
+     * Uses the iterative method found at https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm
      * @param other The matrix to apply this matrix to.
      * @return The transformed matrix.
      */
     public TransformationMatrix applyTo(TransformationMatrix other) {
         float[][] result = new float[4][4];
-        for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 4; col++) {
-                result[row][col] = this.matrix[row][col] * other.matrix[col][row];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                float sum = 0;
+                for (int k = 0; k < 4; k++) {
+                    sum = sum + this.matrix[i][k] * other.matrix[k][j];
+                }
+                result[i][j] = sum;
             }
         }
         return new TransformationMatrix(result);
+    }
+
+    public void randomize() {
+        Random random = new Random();
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                matrix[i][j] = random.nextFloat();
+            }
+        }
+        matrix[3][0] = 0;
+        matrix[3][1] = 0;
+        matrix[3][2] = 0;
+        matrix[3][3] = 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        TransformationMatrix that = (TransformationMatrix) o;
+
+        return Arrays.deepEquals(matrix, that.matrix);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.deepHashCode(matrix);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < 4; i++) {
+            sb.append(Arrays.toString(matrix[i]));
+            if (i != 3) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return  sb.toString();
     }
 }
