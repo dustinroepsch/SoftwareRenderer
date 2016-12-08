@@ -16,3 +16,4 @@ This is a list of the websites I have used to help myself while developing this 
 
 * http://www.codinglabs.net/article_world_view_projection_matrix.aspx
 * https://www.davrous.com/2013/06/13/tutorial-series-learning-how-to-write-a-3d-soft-engine-from-scratch-in-c-typescript-or-javascript/
+* https://github.com/ssloy/tinyrenderer/wiki
