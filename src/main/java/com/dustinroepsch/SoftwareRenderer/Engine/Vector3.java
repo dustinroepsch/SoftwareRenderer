@@ -1,5 +1,7 @@
 package com.dustinroepsch.SoftwareRenderer.Engine;
 
+import java.util.Arrays;
+
 import static com.google.common.base.Preconditions.*;
 
 /**
@@ -43,6 +45,45 @@ public class Vector3 {
         for (int i = 0; i < 3; i++) {
             this.vector[i] = vector[i];
         }
-        vector[3] = 1;
+        this.vector[3] = 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Vector3 vector3 = (Vector3) o;
+
+        return Arrays.equals(vector, vector3.vector);
+
+    }
+
+    /**
+     * Compares this Vector3 to another using tolerance epsilon
+     *
+     * @param other   The Vector3 to compare this Vector3 to.
+     * @param epsilon The tolerance of the comparison
+     * @return Whether the Vectors components are within epsilon of each other.
+     */
+    public boolean epsilonEquals(Vector3 other, float epsilon) {
+        for (int i = 0; i < 4; i++) {
+            if (Math.abs(this.vector[i] - other.vector[i]) > epsilon) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(vector);
+    }
+
+    @Override
+    public String toString() {
+        return "Vector3{" +
+                "vector=" + Arrays.toString(vector) +
+                '}';
     }
 }
