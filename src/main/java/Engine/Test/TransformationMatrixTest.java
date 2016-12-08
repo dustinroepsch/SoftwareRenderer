@@ -17,4 +17,5 @@ public class TransformationMatrixTest {
         TransformationMatrix result = identity.applyTo(random);
         assertEquals(random, result);
     }
+
 }

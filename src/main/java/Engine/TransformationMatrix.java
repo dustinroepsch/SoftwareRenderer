@@ -2,6 +2,10 @@ package Engine;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.jar.Pack200;
+
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
 /**
  * Transformation Matrix as described in
@@ -58,6 +62,7 @@ public class TransformationMatrix {
     /**
      * Applies this transformation matrix to another transformation matrix and returns the result.
      * Uses the iterative method found at https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm
+     *
      * @param other The matrix to apply this matrix to.
      * @return The transformed matrix.
      */
@@ -69,12 +74,16 @@ public class TransformationMatrix {
                 for (int k = 0; k < 4; k++) {
                     sum = sum + this.matrix[i][k] * other.matrix[k][j];
                 }
-                result[i][j] = sum;
+                new
+                        result[i][j] = sum;
             }
         }
         return new TransformationMatrix(result);
     }
 
+    /**
+     * Fills the matrix with random values. Preserves the bottom right 1, and the bottom row zeros.
+     */
     public void randomize() {
         Random random = new Random();
         for (int i = 0; i < 4; i++) {
@@ -99,6 +108,20 @@ public class TransformationMatrix {
 
     }
 
+    /**
+     * Returns a transformation that will rotate around the x axis.
+     *
+     * @param theta the angle to rotate in radians.
+     * @return The transformation representation of the rotation.
+     */
+    public static TransformationMatrix getXrotation(float theta) {
+        TransformationMatrix rotation = new TransformationMatrix();
+        rotation.matrix[1][1] = (float) cos(theta);
+        rotation.matrix[1][2] = (float) -sin(theta);
+        rotation.matrix[2][1] = (float) sin(theta);
+        rotation.matrix[2][2] = (float) cos(theta);
+    }
+
     @Override
     public int hashCode() {
         return Arrays.deepHashCode(matrix);
@@ -116,6 +139,6 @@ public class TransformationMatrix {
             }
         }
         sb.append("]");
-        return  sb.toString();
+        return sb.toString();
     }
 }
