@@ -5,6 +5,11 @@ The goal of this project is for me to apply the concepts I've been learing in Ma
 This is an attempt to make a software 3D rendering library that has few external dependencies. As of writing, I plan on using 
 Guava for its niceties, and most like Processing to make drawing the pixels easier (maybe opting for javafx or awt in the future).
 
+Documentation
+--------------
+I've been to JavaDoc all of the engine code. You can view the documentation on this repos github page, located at 
+https://dustinroepsch.github.io/SoftwareRenderer/
+
 Helpful Links
 -------------
 This is a list of the websites I have used to help myself while developing this engine.
