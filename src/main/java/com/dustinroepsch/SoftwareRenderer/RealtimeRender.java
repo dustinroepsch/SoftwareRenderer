@@ -24,6 +24,7 @@ public class RealtimeRender extends PApplet {
 
     @Override
     public void setup() {
+        frameRate(20);
         try {
             String home = System.getProperty("user.home");
             File inputObj = new File(home + "/african_head.obj");
@@ -37,7 +38,7 @@ public class RealtimeRender extends PApplet {
     public void draw() {
         clear();
         background(0);
-        rotation = TransformationMatrix.getXrotation((float) Math.toRadians(millis() / 500f));
+        rotation = TransformationMatrix.getXrotation((float) Math.toRadians(millis() / 5000f));
         for (Face face : mesh.faces) {
             Vector3[] vertices = face.getVertices();
             for (int i = 0; i < vertices.length; i++) {
