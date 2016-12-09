@@ -1,5 +1,7 @@
 package com.dustinroepsch.SoftwareRenderer.Engine.Model;
 
+import com.dustinroepsch.SoftwareRenderer.Engine.Vector3;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -30,12 +32,12 @@ public class Mesh {
         //matches the pattern f 1193/1240/1193 1180/1227/1180 1179/1226/1179
         //puts each number into a capture group
         Pattern facePattern = Pattern.compile("f\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)\\s*(\\d*)\\/(\\d*)\\/(\\d*)");
-        ArrayList<Vertice> verts = new ArrayList<Vertice>();
+        ArrayList<Vector3> verts = new ArrayList<Vector3>();
         while (fileScanner.hasNextLine()) {
             String currentLine = fileScanner.nextLine();
             Matcher verticeMatcher = verticePattern.matcher(currentLine);
             if (verticeMatcher.matches()) {
-                verts.add(new Vertice(
+                verts.add(new Vector3(
                         Float.valueOf(verticeMatcher.group(1)),
                         Float.valueOf(verticeMatcher.group(2)),
                         Float.valueOf(verticeMatcher.group(3))

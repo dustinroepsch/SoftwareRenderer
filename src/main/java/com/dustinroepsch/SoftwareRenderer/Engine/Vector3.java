@@ -86,4 +86,12 @@ public class Vector3 {
                 "vector=" + Arrays.toString(vector) +
                 '}';
     }
+
+    public float getX() {
+        return vector[X];
+    }
+
+    public float getY() {
+        return vector[Y];
+    }
 }
