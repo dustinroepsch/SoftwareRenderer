@@ -87,11 +87,25 @@ public class Vector3 {
                 '}';
     }
 
+    /**
+     * Returns the x coord of the vect
+     * @return the x coord
+     */
     public float getX() {
         return vector[X];
     }
-
+    /**
+     * Returns the y coord of the vect
+     * @return the y coord
+     */
     public float getY() {
         return vector[Y];
+    }
+    /**
+     * Returns the z coord of the vect
+     * @return the z coord
+     */
+    public float getZ() {
+        return vector[Z];
     }
 }
