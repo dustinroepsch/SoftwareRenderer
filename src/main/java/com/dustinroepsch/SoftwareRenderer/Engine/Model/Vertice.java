@@ -6,7 +6,9 @@ import com.dustinroepsch.SoftwareRenderer.Engine.Vector3;
  * A representation of a point in space
  */
 public class Vertice {
-    private float x, y, z;
+    public float x;
+    public float y;
+    private float z;
 
     public Vertice(float x, float y, float z) {
         this.x = x;

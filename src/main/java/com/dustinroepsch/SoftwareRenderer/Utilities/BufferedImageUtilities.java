@@ -45,9 +45,13 @@ public class BufferedImageUtilities {
             float t = (x - x0) / ((float) (x1 - x0));
             int y = (int) (y0 * (1 - t) + y1 * t);
             if (steep) {
-                img.setRGB(y, x, rgb); //detranspose
+                if (y >= 0 && x >= 0 && y < img.getWidth() && x < img.getHeight()) {
+                    img.setRGB(y, x, rgb); //detranspose
+                }
             } else {
-                img.setRGB(x, y, rgb);
+                if (y >= 0 && x >= 0 && y < img.getHeight() && x < img.getWidth()) {
+                    img.setRGB(x, y, rgb);
+                }
             }
         }
     }
