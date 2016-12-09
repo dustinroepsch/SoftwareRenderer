@@ -11,4 +11,16 @@ public class Face {
         this.b = b;
         this.c = c;
     }
+
+    public Vertice getA() {
+        return a;
+    }
+
+    public Vertice getB() {
+        return b;
+    }
+
+    public Vertice getC() {
+        return c;
+    }
 }

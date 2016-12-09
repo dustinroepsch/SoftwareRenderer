@@ -1,4 +1,4 @@
-package com.dustinroepsch.SoftwareRenderer.Engine.Test;
+package com.dustinroepsch.SoftwareRenderer.Engine;
 
 import com.dustinroepsch.SoftwareRenderer.Engine.TransformationMatrix;
 import com.dustinroepsch.SoftwareRenderer.Engine.Vector3;

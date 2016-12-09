@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * Mesh is a 3D model.
  */
 public class Mesh {
-    private ArrayList<Face> faces;
+    public ArrayList<Face> faces;
 
     /**
      * Creates a Mesh from a Wavefront Obj file.
