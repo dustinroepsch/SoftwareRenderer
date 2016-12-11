@@ -19,7 +19,8 @@ public class RealtimeRender extends PApplet {
     TransformationMatrix rotation;
     @Override
     public void settings() {
-        size(500,500);
+        size(900,900);
+        //fullScreen();
     }
 
     @Override
@@ -27,18 +28,19 @@ public class RealtimeRender extends PApplet {
         frameRate(20);
         try {
             String home = System.getProperty("user.home");
-            File inputObj = new File(home + "/african_head.obj");
+            File inputObj = new File(home + "/diablo.obj");
             mesh = new Mesh(inputObj);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
-
+    float angle = PI/2;
     @Override
     public void draw() {
         clear();
         background(0);
-        rotation = TransformationMatrix.getXrotation((float) Math.toRadians(millis() / 5000f));
+        //angle = angle + 0.01f;
+        rotation = TransformationMatrix.getXrotation(angle);
         for (Face face : mesh.faces) {
             Vector3[] vertices = face.getVertices();
             for (int i = 0; i < vertices.length; i++) {
@@ -46,11 +48,10 @@ public class RealtimeRender extends PApplet {
             }
             for (Vector3 startVertice : vertices) {
                 for (Vector3 endVertice : vertices) {
-                    int x0 = (int) ((startVertice.getX()) * width / 2f + width / 2f);
-                    int y0 = height - (int) ((startVertice.getY()) * width / 2f + height / 2f);
-                    int x1 = (int) ((endVertice.getX()) * width/ 2f + width / 2f);
-                    int y1 = height - (int) ((endVertice.getY()) * height / 2f + height/ 2f);
-                    //BufferedImageUtilities.line(outputImage, x0, y0, x1, y1, Color.WHITE.getRGB());
+                    float x0 = map(startVertice.getX(), mesh.smallestX, mesh.largestX, 0, width);
+                    float x1 = map(endVertice.getX(), mesh.smallestX, mesh.largestX, 0, width);
+                    float y0 = map(startVertice.getY(), mesh.smallestY, mesh.largestY, 0, height);
+                    float y1 = map(endVertice.getY(), mesh.smallestY, mesh.largestY, 0, height);
                     stroke(255,255,255);
                     line(x0, y0, x1, y1);
                 }
